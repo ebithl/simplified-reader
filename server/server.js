@@ -27,9 +27,9 @@ app.use(express.json());
 app.use(cors({
   origin: "https://simplified-reader-client.onrender.com"
 }));
-app.use("/api/simplify/", simplifyRoutes);
-//app.use("/api/upload-pdf-pages", upload.single("pdf"), uploadRoutes);
-app.use("/api/upload-pdf-pages/", uploadRoutes);
+app.use("/api/simplify", simplifyRoutes);
+app.use("/api/upload-pdf-pages", upload.single("pdf"), uploadRoutes);
+//app.use("/api/upload-pdf-pages/", uploadRoutes);
 
 //// Serve frontend build
 //app.use(express.static(path.join(__dirname, "../client/dist")));
