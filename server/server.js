@@ -16,7 +16,10 @@ const __dirname = path.dirname(__filename);
 
 const upload = multer({ dest: "uploads/" });
 
-app.use(cors());
+//app.use(cors());
+app.use(cors({
+  origin: process.env.ALLOW_ORIGIN
+}));
 app.use(express.json());
 app.use("/api/simplify/", simplifyRoutes);
 //app.use("/api/upload-pdf-pages", upload.single("pdf"), uploadRoutes);
