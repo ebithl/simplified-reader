@@ -3,9 +3,10 @@ import path from "path";
 import pdfjsLib from "pdfjs-dist/legacy/build/pdf.js";
 
 export const uploadContent = async (req, res) => {
-  const filePath = path.join(__dirname, req.file.path);
 
   try {
+
+	const filePath = path.resolve("uploads", req.file.filename);
     const data = new Uint8Array(fs.readFileSync(filePath));
     const pdf = await pdfjsLib.getDocument({ data }).promise;
 
