@@ -11,7 +11,7 @@ const TextInputArea = ({ inputText, setInputText, setSimplifiedText, language })
       body: JSON.stringify({ text: inputText, language })
     });
     const data = await response.json();
-    setSimplifiedText(data.simplifiedText);
+    setSimplifiedText(data.simplified);
   };
 
   return (
