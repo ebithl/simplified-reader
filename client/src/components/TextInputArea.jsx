@@ -1,9 +1,11 @@
 // components/TextInputArea.jsx
 import React from "react";
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 const TextInputArea = ({ inputText, setInputText, setSimplifiedText, language }) => {
   const handleSimplify = async () => {
-    const response = await fetch("http://localhost:5000/api/simplify", {
+    const response = await fetch(`${baseUrl}/api/simplify`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: inputText, language })

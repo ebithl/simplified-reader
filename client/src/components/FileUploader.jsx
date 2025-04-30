@@ -153,6 +153,7 @@
 
 // components/FileUploader.jsx
 import React, { useState } from "react";
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const FileUploader = ({ setInputText }) => {
   const [pages, setPages] = useState([]);
@@ -165,7 +166,7 @@ const FileUploader = ({ setInputText }) => {
     const formData = new FormData();
     formData.append("pdf", file);
 
-    const res = await fetch("http://localhost:5000/api/upload-pdf-pages", {
+    const res = await fetch(`${baseUrl}/api/upload-pdf-pages`, {
       method: "POST",
       body: formData,
     });
