@@ -11,7 +11,7 @@ export const simplifyContent = async (req, res) => {
   const { text, language } = req.body;
   try {
     const completion = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
@@ -27,6 +27,7 @@ export const simplifyContent = async (req, res) => {
     const simplified = completion.choices[0].message.content;
     res.json({ simplified });
   } catch (error) {
+	console.error("Simplify API Error:", error);
     res.status(500).json({ error: "Error simplifying content" });
   }
 };
