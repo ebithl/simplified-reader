@@ -19,13 +19,8 @@ const upload = multer({ dest: "uploads/" });
 
 app.use(express.json());
 
-//app.use(cors());
-//app.use(cors({
-//  origin: process.env.ALLOW_ORIGIN
-//}));
-
 app.use(cors({
-  origin: "https://simplified-reader-client.onrender.com"
+  origin: process.env.ALLOW_ORIGIN
 }));
 app.use("/api/simplify", simplifyRoutes);
 app.use("/api/upload-pdf-pages", upload.single("pdf"), uploadRoutes);
